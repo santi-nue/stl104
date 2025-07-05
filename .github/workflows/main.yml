@@ -26,3 +26,16 @@ jobs:
 
       - name: Build debug APK
         run: bash ./gradlew assembleRelease --stacktrace
+
+      - name: Check files
+        run: ls -al app/build/outputs/apk/release
+
+
+      - name: Archive bbuild
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-unsigned
+          path: app/build/outputs/apk/release/app-release-unsigned.apk
+      
+
+
